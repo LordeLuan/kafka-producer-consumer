@@ -16,7 +16,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 public @interface StrConsumerCustomListener {
 
 //	Definindo um valor padrão para os atributos da annotation 
-	
+
 	@AliasFor(annotation = KafkaListener.class, attribute = "topics")
 	String[] topics() default "str-topic";
 
@@ -26,5 +26,8 @@ public @interface StrConsumerCustomListener {
 //	Vazio para ser definido quando for utilizado
 	@AliasFor(annotation = KafkaListener.class, attribute = "groupId")
 	String groupId() default "";
+
+	@AliasFor(annotation = KafkaListener.class, attribute = "errorHandler")
+	String errorHandler() default "errorCustomHandler";
 
 }
